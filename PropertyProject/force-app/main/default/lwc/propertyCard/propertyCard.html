@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title={propertyName} icon-name="standard:apex_plugin">
+    <div class="slds-m-around_medium" style="float:right;">
+        <lightning-button label="Add Property" onclick={newAcc}></lightning-button>
+        <lightning-button onclick={handleNavigateToRecord} label="More Details"></lightning-button>
+    </div>
+        <!-- <lightning-button-icon icon-name="utility:expand_alt" onclick={handleNavigateToRecord}></lightning-button-icon> -->
+        <template if:true={recordId}>
+        <div class="slds-m-horizontal_medium">
+            <img src={propertyPicture} alt="Property Picture"/>
+            <lightning-record-view-form onload={handleRecordLoaded} record-id={recordId} object-api-name="Property__c" density="Compact">
+                <lightning-output-field field-name={categoryField}></lightning-output-field>
+                <lightning-output-field field-name={areaField}></lightning-output-field>
+                <lightning-output-field field-name={rentField}></lightning-output-field>
+                <section>Other Details</section>
+                <lightning-output-field field-name={availableFromField}></lightning-output-field>
+                <lightning-output-field field-name={facingField}></lightning-output-field>
+                <lightning-output-field field-name={additionalRoomField}></lightning-output-field>
+            </lightning-record-view-form>
+        </div>
+    </template>
+    <template if:false={recordId}>
+        <c-placeholder message="Select a Property to see details"></c-placeholder>
+    </template>
+    </lightning-card>
+</template>

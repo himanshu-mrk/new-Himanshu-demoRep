@@ -1,0 +1,29 @@
+img.propertyImg{
+    height: 120px;
+    max-width: initial;
+    pointer-events: none;
+
+}
+
+.title{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.content{
+    padding: 8px;
+    background-color:lightgray;
+    border-radius: 0.50rem;
+    border: 0.5px solid;
+    border-color: darkgray;
+}
+
+/* .content:hover{
+    font-size: 20px;
+} */
+
+.zoom:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+  }

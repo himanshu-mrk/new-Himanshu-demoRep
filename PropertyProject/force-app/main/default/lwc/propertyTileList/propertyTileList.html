@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Available Properties" icon-name="standard:account">
+        <div class="hov">
+        <div class="slds-p-around_medium wrapper">
+            <template if:true={property.length}>
+                <div class="content">
+                    <template for:each={property} for:item="pro">
+                        <c-property-tile key={pro.Id} pro={pro} onselected={handlePropertySelected}></c-property-tile>
+                    </template>
+                </div>
+            </template>
+            <template if:false={property.length}>
+                <c-placeholder message="There are no matching property for your current selection"></c-placeholder>
+            </template>
+        </div>
+    </div>
+    </lightning-card>
+</template>

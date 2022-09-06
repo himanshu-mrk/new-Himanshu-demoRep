@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Similar Properties" icon-name="standard:link">
+        <div class="slds-m-around_medium">
+            <template if:false={similarProperty}>
+                <div class="slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Fetch Similar Properties" onclick={fetchSimilarProperties}></lightning-button>
+                </div>
+            </template>
+            
+            <template if:true={similarProperty}>
+                <template for:each={similarProperty} for:item="property">
+                    <lightning-layout vertical-align="canter" key={property.Id}>
+                        <lightning-layout-item>
+                            <img src={property.Property_Main_Image__c} alt="Property Image" class="property"/>
+                        </lightning-layout-item>
+                        <lightning-layout-item flexibility="grow" class="slds-p-horizontal_small">
+                            <p><strong>{property.Name}</strong></p>
+                            <p>
+                                <lightning-formatted-number format-style="currency" currency-code="USD" value={property.Rent__c} maximum-fraction-digits="0"></lightning-formatted-number>
+                            </p>
+                            <p>{property.Available_from__c}</p>
+                            <p>{property.Area__c}</p>
+                        </lightning-layout-item>
+                        <lightning-layout-item>
+                            <lightning-button label="View Details" data-id={property.Id} onclick={handleViewDetailsClick}></lightning-button>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

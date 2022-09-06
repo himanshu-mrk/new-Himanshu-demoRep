@@ -1,0 +1,13 @@
+c-property-tile{
+    min-width: 200px;
+    flex:1;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wrapper{
+    background-color: rgba(0, 0, 0, 0.356);
+}
